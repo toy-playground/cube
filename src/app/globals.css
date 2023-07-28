@@ -44,7 +44,7 @@ body {
   content: "";
   position: absolute;
   left: 50px;
-  top:-20px;
+  top: -20px;
   width: 20px;
   height: 100%;
   background-color: #dcdcdc;
@@ -65,17 +65,20 @@ body {
   transition: 2s;
 }
 
-.item:hover {
+.item:hover,
+.hover {
   transition: 0s;
   background-color: #ef4149;
   filter: drop-shadow(0 0 20px #ef4149);
 }
 
-.item:hover::before {
+.item:hover::before,
+.hover::before {
   transition: 0s;
   background-color: #f75d64;
 }
-.item:hover::after {
+.item:hover::after,
+.hover::after {
   transition: 0s;
   background-color: #f14e55;
 }

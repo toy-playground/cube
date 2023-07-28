@@ -1,14 +1,35 @@
 "use client";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function Home() {
   const [x, setX] = useState(3);
   const spanList = useMemo(() => {
     return new Array(x).fill(0);
   }, [x]);
+  useEffect(() => {
+    const links = document.getElementsByClassName("item");
+    // console.log(links);
+    for (let i = 0; i < links.length; i++) {
+      console.log(links[i]?.classList);
+      links[i].addEventListener(
+        "touchstart",
+        function () {
+          links[i]?.classList.add("hover");
+        },
+        false
+      );
+      links[i].addEventListener(
+        "touchend",
+        () => {
+          links[i]?.classList.remove("hover");
+        },
+        false
+      );
+    }
+  }, [x]);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center p-24">
       <div className="flex items-center gap-x-4">
         <button
           className="flex gap-4 cursor-pointer"
