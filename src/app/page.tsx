@@ -7,29 +7,30 @@ export default function Home() {
   const spanList = useMemo(() => {
     return new Array(x).fill(0);
   }, [x]);
-  useEffect(() => {
-    const links = document.getElementsByClassName("item");
-    // console.log(links);
-    for (let i = 0; i < links.length; i++) {
-      console.log(links[i]?.classList);
-      links[i].addEventListener(
-        "touchstart",
-        function () {
-          links[i]?.classList.add("hover");
-        },
-        false
-      );
-      links[i].addEventListener(
-        "touchend",
-        () => {
-          links[i]?.classList.remove("hover");
-        },
-        false
-      );
-    }
-  }, [x]);
+
+// useEffect(() => {
+//     const links = document.getElementsByClassName("item");
+//     // console.log(links);
+//     for (let i = 0; i < links.length; i++) {
+//       console.log(links[i]?.classList);
+//       links[i].addEventListener(
+//         "mouseover",
+//         function () {
+//           links[i]?.classList.add("hover");
+//         },
+//         false
+//       );
+//       links[i].addEventListener(
+//         "touchend",
+//         () => {
+//           links[i]?.classList.remove("hover");
+//         },
+//         false
+//       );
+//     }
+//   }, [x]);
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex min-h-screen flex-col items-center p-24 overflow-hidden max-h-screen">
       <div className="flex items-center gap-x-4">
         <button
           className="flex gap-4 cursor-pointer"
@@ -55,7 +56,7 @@ export default function Home() {
         </button>
       </div>
       <div className="relative p-10 h-[500px] ">
-        <div className="relative flex justify-center items-center pt-[100px]">
+        <div className="relative flex justify-center items-center pt-[100px]" id='wrapper'>
           {spanList.map((_, index) => {
             return (
               <div
